@@ -14,6 +14,47 @@ class PerumahanController extends Controller
     public function index()
     {
         //
+        return view('layouts.index');
+    }
+
+    public function about()
+    {
+        return view('layouts.about');
+    }
+
+    public function propertySingle()
+    {
+        return view('layouts.property-single');
+    }
+
+    public function propertyGrid()
+    {
+        return view('layouts.property-grid');
+    }
+
+    public function agentSingle()
+    {
+        return view('layouts.agent-single');
+    }
+
+    public function agentGrid()
+    {
+        return view('layouts.agents-grid');
+    }
+
+    public function blogSingle()
+    {
+        return view('layouts.blog-single');
+    }
+
+    public function blogGrid()
+    {
+        return view('layouts.blog-grid');
+    }
+
+    public function contact()
+    {
+        return view('layouts.contact');
     }
 
     /**
