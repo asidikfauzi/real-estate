@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>EstateAgency Bootstrap Template - Index</title>
+  <title>EstateAgency</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -170,16 +170,40 @@
           <li class="nav-item">
             <a class="nav-link " href="{{route('contact')}}">Contact</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="contact.html">Login</a>
-          </li>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ms-auto">
+                <!-- Authentication Links -->
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+            </ul>
+        </div>
         </ul>
       </div>
-
-      <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
-        <i class="bi bi-search"></i>
-      </button>
-
     </div>
   </nav><!-- End Header/Navbar -->
 
