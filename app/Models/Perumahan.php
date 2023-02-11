@@ -11,4 +11,10 @@ class Perumahan extends Model
 
     protected $table = "perumahans";
     protected $guarded = [];
+    protected $primaryKey = "id";
+    protected $keyType = "string";
+
+    public function bookings(){
+    	return $this->hasMany(Booking::class);
+    }
 }

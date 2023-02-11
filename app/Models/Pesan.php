@@ -11,4 +11,11 @@ class Pesan extends Model
 
     protected $table = "pesans";
     protected $guarded = [];
+    protected $primaryKey = "id";
+    protected $keyType = "string";
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

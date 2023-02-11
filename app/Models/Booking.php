@@ -11,4 +11,16 @@ class Booking extends Model
 
     protected $table = "bookings";
     protected $guarded = [];
+    protected $primaryKey = "id";
+    protected $keyType = "string";
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function perumahans()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

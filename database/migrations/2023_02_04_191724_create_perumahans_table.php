@@ -21,6 +21,7 @@ class CreatePerumahansTable extends Migration
             $table->longText('alamat');
             $table->string('harga');
             $table->longText('keterangan');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

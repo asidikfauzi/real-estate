@@ -21,4 +21,12 @@ class User extends Authenticatable
     protected $guarded = [];
     protected $primaryKey = "id";
     protected $keyType = "string";
+
+    public function pesans(){
+    	return $this->hasMany(Pesan::class);
+    }
+
+    public function bookings(){
+    	return $this->hasMany(Booking::class);
+    }
 }
