@@ -21,8 +21,9 @@ use App\Http\Controllers\Auth\RegisterController;
 // });
 
 // Auth::routes();
-Route::get('/auth', [LoginController::class, 'indexHalaman'])->name('authLogin');
-Route::post('/auth', [LoginController::class, 'login'])->name('authLogin');
+Route::get('/login', [LoginController::class, 'indexHalaman'])->name('authLogin');
+Route::post('/login', [LoginController::class, 'login'])->name('authLogin');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/register-user', [RegisterController::class, 'index'])->name('authRegister.user');
 Route::post('/register-user', [RegisterController::class, 'registerUser'])->name('authRegister.user');
