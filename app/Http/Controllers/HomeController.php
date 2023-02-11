@@ -27,6 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $data = Perumahan::all();
         return view('dashboard.admin.index');
     }
 
