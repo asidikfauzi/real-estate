@@ -5,51 +5,36 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
     protected $redirectTo;
 
     protected function redirectTo()
     {
-        return route('admin.index');
+        return route('authLogin');
     }
 
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
-        return redirect()->route('login');
+        return redirect()->route('authLogin');
+    }
+
+    public function indexHalaman()
+    {
+        // dd('masuk');
+        return view('auth.login');
     }
 
     public function login(Request $request)
     {
-        $username = $request->input('username');
+        $email = $request->input('email');
         $password = $request->input('password');
 
-        if(auth()->attempt(array('username'=>$username, 'password'=>$password)))
+        if(auth()->attempt(array('email'=>$email, 'password'=>$password)))
         {
             if(auth()->user()->role == "admin")
             {
@@ -67,13 +52,13 @@ class LoginController extends Controller
         }
         else
         {
-            return redirect()->route('login')->with('failed', 'Username atau password salah');
+            return redirect()->route('authLogin')->with('failed', 'Username atau password salah');
         }
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect('login');
+        return redirect('authLogin');
     }
 }

@@ -34,6 +34,7 @@
 </head>
 
 <body>
+@include('sweetalert::alert')
 
   <!-- ======= Property Search Section ======= -->
   <div class="click-closed"></div>
@@ -176,10 +177,14 @@
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
                 @guest
-                    @if (Route::has('login'))
+                    @if (Route::has('authLogin'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('authLogin') }}">{{ __('Login') }}</a>
                         </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">NAMA{{\Auth::user()}}</a>
+                    </li>
                     @endif
                 @else
                     <li class="nav-item dropdown">

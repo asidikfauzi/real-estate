@@ -36,30 +36,26 @@
 
         <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-          <form style="width: 23rem;">
-
+          <form method="POST" action="{{route('authLogin')}}" style="width: 23rem;">
+            @csrf
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
             <div class="form-outline mb-4">
-              <input type="email" id="form2Example18" class="form-control form-control-lg" />
-              <label class="form-label" for="form2Example18">Email address</label>
+                <label class="" for="form2Example18">Email address</label>
+                <input type="email" name="email" id="form2Example18" class="form-control form-control-lg" />
             </div>
 
             <div class="form-outline mb-4">
-              <input type="password" id="form2Example28" class="form-control form-control-lg" />
-              <label class="form-label" for="form2Example28">Password</label>
+                <label class="" for="form2Example28">Password</label>
+                <input type="password" name="password" id="form2Example28" class="form-control form-control-lg" />
             </div>
 
             <div class="pt-1 mb-4">
-              <button class="btn btn-info btn-lg btn-block" type="button">Login</button>
+              <button class="btn btn-info btn-lg btn-block" type="submit">Login</button>
             </div>
-
-            @if (Route::has('register'))
-                <p>Don't have an account?
-                    <a class="link-info" href="{{ route('register') }}">{{ __('Register here') }}</a>
-                </p>
-            @endif
-
+            <p>Don't have an account?
+                <a class="link-info" href="{{ route('authRegister.user') }}">{{ __('Register here') }}</a>
+            </p>
           </form>
 
         </div>

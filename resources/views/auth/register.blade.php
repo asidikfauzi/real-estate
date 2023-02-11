@@ -1,14 +1,10 @@
 
-<!-- Font Awesome -->
+{{-- <!-- Font Awesome -->
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
   rel="stylesheet"
-/>
-<!-- Google Fonts -->
-<link
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-  rel="stylesheet"
-/>
+/> --}}
+
 <!-- MDB -->
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
@@ -29,32 +25,41 @@
         }
     }
 </style>
+
 <section class="vh-100">
+    @include('sweetalert::alert')
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-6 text-black">
         <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-          <form style="width: 23rem;">
-
+          <form method="POST" action="{{route('authRegister.user')}}" style="width: 23rem;">
+            @csrf
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Register</h3>
 
             <div class="form-outline mb-4">
-                <input type="email" id="form2Example18" class="form-control form-control-lg" />
-                <label class="form-label" for="form2Example18">Email address</label>
+                <label class="" for="form2Example18">Email address</label>
+                <input type="email" name="email" id="form2Example18" class="form-control form-control-lg" />
+                @error('email')
+                    <div style="font-size: 12px; color: red">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-outline mb-4">
-                <input type="email" id="form2Example18" class="form-control form-control-lg" />
-                <label class="form-label" for="form2Example18">Name</label>
-              </div>
-
-            <div class="form-outline mb-4">
-                <input type="password" id="form2Example28" class="form-control form-control-lg" />
-                <label class="form-label" for="form2Example28">Password</label>
+                <label class="" for="form2Example18">Name</label>
+                <input type="text" name="name" id="form2Example18" class="form-control form-control-lg" />
+                @error('name')
+                    <div style="font-size: 12px; color: red">{{ $message }}</div>
+                @enderror
             </div>
-
+            <div class="form-outline mb-4">
+                <label class="" for="form2Example28">Password</label>
+                <input type="password" name="password" id="form2Example28" class="form-control form-control-lg" />
+                @error('password')
+                    <div style="font-size: 12px; color: red">{{ $message }}</div>
+                @enderror
+            </div>
             <div class="pt-1 mb-4">
-                <button class="btn btn-info btn-lg btn-block" type="button">Register</button>
+                <button type="submit" class="btn btn-info btn-lg btn-block">Register</button>
             </div>
 
           </form>

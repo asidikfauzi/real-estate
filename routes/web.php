@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerumahanController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,14 @@ use App\Http\Controllers\PerumahanController;
 //     return view('layouts.index');
 // });
 
+// Auth::routes();
+Route::get('/auth', [LoginController::class, 'indexHalaman'])->name('authLogin');
+Route::post('/auth', [LoginController::class, 'login'])->name('authLogin');
+
+Route::get('/register-user', [RegisterController::class, 'index'])->name('authRegister.user');
+Route::post('/register-user', [RegisterController::class, 'registerUser'])->name('authRegister.user');
+
+
 Route::get('/', [PerumahanController::class, 'index'])->name('index');
 Route::get('/about', [PerumahanController::class, 'about'])->name('about');
 Route::get('/property-single', [PerumahanController::class, 'propertySingle'])->name('property_single');
@@ -27,4 +37,12 @@ Route::get('/agents-grid', [PerumahanController::class, 'agentGrid'])->name('age
 Route::get('/blog-single', [PerumahanController::class, 'blogSingle'])->name('blog_single');
 Route::get('/blog-grid', [PerumahanController::class, 'blogGrid'])->name('blog_grid');
 Route::get('/contact', [PerumahanController::class, 'contact'])->name('contact');
+
+Route::group(['prefix'=>'admin', 'middleware'=>['Admin','auth']], function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.index');
+});
+
+
+
+
 
