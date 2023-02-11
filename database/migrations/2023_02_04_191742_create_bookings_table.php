@@ -14,9 +14,7 @@ class CreateBookingsTable extends Migration
     public function up()
     {
         Schema::create('bookings', function (Blueprint $table) {
-            // $table->index('user_id');
             $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
-            // $table->index('perumahan_id');
             $table->foreignUuid('perumahan_id')->references('id')->on('perumahans')->onDelete('cascade');
             $table->string('cicilan');
             $table->string('total_harga');

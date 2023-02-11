@@ -20,6 +20,7 @@ class PerumahanSeeder extends Seeder
             'image' => 'rumahsatu.jpg',
             'lebar' => '10',
             'panjang' => '10',
+            'alamat' => 'Jl Lippo Jember Di Atas Genteng no 10',
             'harga' => '150000000',
             'keterangan' => 'Di jual tanpa perantara',
         ],
@@ -28,6 +29,7 @@ class PerumahanSeeder extends Seeder
             'image' => 'rumahdua.jpg',
             'lebar' => '11',
             'panjang' => '15',
+            'alamat' => 'Jl Ozie Jember Di Atas Genteng no 11',
             'harga' => '170000000',
             'keterangan' => 'Di jual tanpa perantara',
         ],
@@ -36,6 +38,7 @@ class PerumahanSeeder extends Seeder
             'image' => 'rumahtiga.jpg',
             'lebar' => '10',
             'panjang' => '20',
+            'alamat' => 'Jl Eterno Jember Di Atas Genteng no 10',
             'harga' => '260000000',
             'keterangan' => 'Di jual tanpa perantara',
         ],);

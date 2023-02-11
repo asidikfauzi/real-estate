@@ -18,6 +18,7 @@ class CreatePerumahansTable extends Migration
             $table->string('image');
             $table->string('lebar');
             $table->string('panjang');
+            $table->longText('alamat');
             $table->string('harga');
             $table->longText('keterangan');
             $table->timestamps();
