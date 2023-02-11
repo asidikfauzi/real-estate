@@ -9,6 +9,6 @@ class Pesan extends Model
 {
     use HasFactory;
 
-    protected $table = "pesan";
+    protected $table = "pesans";
     protected $guarded = [];
 }

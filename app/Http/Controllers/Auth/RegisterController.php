@@ -37,7 +37,7 @@ class RegisterController extends Controller
             'role' => 'user',
         ]);
 
-        Alert::success('Success Title', 'Success Message');
-        return redirect('/register-user');
+        Alert::success('Success', 'User Berhasil Ditambahkan!');
+        return back();
     }
 }

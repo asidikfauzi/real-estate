@@ -41,6 +41,7 @@ Route::get('/contact', [PerumahanController::class, 'contact'])->name('contact')
 
 Route::group(['prefix'=>'admin', 'middleware'=>['Admin','auth']], function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.index');
+    Route::post('/store', [App\Http\Controllers\HomeController::class, 'store'])->name('admin.store');
 });
 
 
