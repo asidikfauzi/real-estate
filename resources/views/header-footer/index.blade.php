@@ -9,6 +9,12 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <!-- DataTables -->
+  <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
   <!-- Favicons -->
   <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
   <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
@@ -367,6 +373,8 @@
   <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
   <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
+
+
 
   <!-- Template Main JS File -->
   <script src="{{asset('assets/js/main.js')}}"></script>
