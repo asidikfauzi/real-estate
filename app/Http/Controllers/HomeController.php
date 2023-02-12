@@ -7,6 +7,7 @@ use App\Models\Perumahan;
 use App\Helper\Storage;
 use App\Helper\Uuid;
 use Alert;
+use DataTables;
 
 class HomeController extends Controller
 {
@@ -27,8 +28,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = Perumahan::all();
         return view('dashboard.admin.index');
+    }
+
+    public function getDataProperties(Request $request)
+    {
+        $data = Perumahan::all();
+        return DataTables::of($data)->addIndexColumn()
+                ->addColumn('edit', function($row){
+                    return '<a href="#">
+                        <i class="bi bi-eye" style="color:green;"></i></a>';
+                })
+                ->addColumn('delete', function($row){
+                    return '<a href="#">
+                        <i class="bi bi-eye" style="color:green;"></i></a>';
+                })
+                ->rawColumns(['edit','delete'])
+                ->make(true);;
     }
 
     public function store(Request $request)
