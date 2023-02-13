@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Perumahan;
 
 class PerumahanController extends Controller
 {
@@ -14,7 +15,8 @@ class PerumahanController extends Controller
     public function index()
     {
         //
-        return view('layouts.index');
+        $data = Perumahan::where('status', true)->orderBy('created_by', 'DESC')->limit(3)->get();
+        return view('layouts.index', compact('data'));
     }
 
     public function about()

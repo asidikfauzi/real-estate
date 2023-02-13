@@ -33,18 +33,24 @@ class HomeController extends Controller
 
     public function getDataProperties(Request $request)
     {
-        $data = Perumahan::all();
+        $data = Perumahan::orderBy('created_at', 'DESC')->get();
+
         return DataTables::of($data)->addIndexColumn()
                 ->addColumn('edit', function($row){
                     return '<a href="#">
-                        <i class="bi bi-eye" style="color:green;"></i></a>';
+                    <i class="bi bi-pencil-square" style="color:green; padding: 30%"></i></a>';
                 })
                 ->addColumn('delete', function($row){
                     return '<a href="#">
-                        <i class="bi bi-eye" style="color:green;"></i></a>';
+                    <i class="bi bi-trash3" style="color:red; padding: 30%;"></i></a>';
                 })
                 ->rawColumns(['edit','delete'])
                 ->make(true);;
+    }
+
+    public function create()
+    {
+        return view('dashboard.admin.create');
     }
 
     public function store(Request $request)
@@ -66,6 +72,7 @@ class HomeController extends Controller
             'alamat' => $request->alamat,
             'harga' => $request->harga,
             'keterangan' => $request->keterangan,
+            'status' => true,
         ]);
 
         Alert::success('Success', 'Properties Berhasil Ditambahkan!');

@@ -22,6 +22,8 @@ class UserSeeder extends Seeder
             'password' => Hash::make('Password123!'),
             'name' => 'admin',
             'role' => 'admin',
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
         ];
 
         User::insert($user);
