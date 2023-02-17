@@ -44,6 +44,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>['Admin','auth']], function(){
     Route::get('/home-getdata', [App\Http\Controllers\HomeController::class, 'getDataProperties'])->name('admin.getdata.properties');
     Route::get('/create', [App\Http\Controllers\HomeController::class, 'create'])->name('admin.create');
     Route::post('/store', [App\Http\Controllers\HomeController::class, 'store'])->name('admin.store');
+    Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('admin.edit');
+    Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('admin.update');
 });
 
 

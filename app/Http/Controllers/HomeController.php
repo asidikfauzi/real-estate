@@ -37,7 +37,7 @@ class HomeController extends Controller
 
         return DataTables::of($data)->addIndexColumn()
                 ->addColumn('edit', function($row){
-                    return '<a href="#">
+                    return '<a href="'.route('admin.edit',$row->id).'">
                     <i class="bi bi-pencil-square" style="color:green; padding: 30%"></i></a>';
                 })
                 ->addColumn('delete', function($row){
@@ -59,7 +59,11 @@ class HomeController extends Controller
             'image' => 'mimes:jpeg,jpg,png,gif|required|max:20000',
             'lebar' => 'required|integer|min:1',
             'panjang' => 'required|integer|min:1',
+            'kamar' => 'required|integer|min:1',
+            'kamar_mandi' => 'required|integer|min:1',
+            'garasi' => 'required|integer|min:1',
             'alamat' => 'required|string',
+            'kode_pos' => 'required|string',
             'harga' => 'required|integer|min:1',
             'keterangan' => 'required|string',
         ]);
@@ -69,13 +73,63 @@ class HomeController extends Controller
             'image' => Storage::uploadImageProperties($request->file('image')),
             'lebar' => $request->lebar,
             'panjang' => $request->panjang,
+            'kamar' => $request->kamar,
+            'kamar_mandi' => $request->kamar_mandi,
+            'garasi' => $request->garasi,
             'alamat' => $request->alamat,
+            'kode_pos' => $request->kode_pos,
             'harga' => $request->harga,
             'keterangan' => $request->keterangan,
             'status' => true,
         ]);
 
         Alert::success('Success', 'Properties Berhasil Ditambahkan!');
+        return back();
+    }
+
+    public function edit($id)
+    {
+        $data = Perumahan::where('id', $id)->first();
+        return view('dashboard.admin.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = Perumahan::where('id', $id)->first();
+
+        $validate = $request->validate([
+            'image' => 'mimes:jpeg,jpg,png,gif|max:20000',
+            'lebar' => 'required|integer|min:1',
+            'panjang' => 'required|integer|min:1',
+            'kamar' => 'required|integer|min:1',
+            'kamar_mandi' => 'required|integer|min:1',
+            'garasi' => 'required|integer|min:1',
+            'alamat' => 'required|string',
+            'kode_pos' => 'required|string',
+            'harga' => 'required|integer|min:1',
+            'keterangan' => 'required|string',
+        ]);
+
+        $array = [
+            'lebar' => $request->lebar,
+            'panjang' => $request->panjang,
+            'kamar' => $request->kamar,
+            'kamar_mandi' => $request->kamar_mandi,
+            'garasi' => $request->garasi,
+            'alamat' => $request->alamat,
+            'kode_pos' => $request->kode_pos,
+            'harga' => $request->harga,
+            'keterangan' => $request->keterangan,
+            'status' => true,
+        ];
+
+        if ($request->hasFile('image')) {
+            $array['image'] = Storage::uploadImageProperties($request->file('image'));
+        }
+
+        $data->update($array);
+
+        Alert::success('Success', 'Properties Berhasil Diupdate!');
         return back();
     }
 }
