@@ -15,8 +15,10 @@ class PerumahanController extends Controller
     public function index()
     {
         //
-        $data = Perumahan::where('status', true)->orderBy('created_by', 'DESC')->limit(3)->get();
-        return view('layouts.index', compact('data'));
+        $display = Perumahan::where('status', true)->orderBy('created_at', 'DESC')->limit(3)->get();
+        $properties = Perumahan::where('status', true)->orderBy('created_at', 'DESC')->get();
+
+        return view('layouts.index', compact('display', 'properties'));
     }
 
     public function about()
@@ -31,7 +33,8 @@ class PerumahanController extends Controller
 
     public function propertyGrid()
     {
-        return view('layouts.property-grid');
+        $properties = Perumahan::where('status', true)->orderBy('created_at', 'DESC')->paginate(6);
+        return view('layouts.property-grid', compact('properties'));
     }
 
     public function agentSingle()

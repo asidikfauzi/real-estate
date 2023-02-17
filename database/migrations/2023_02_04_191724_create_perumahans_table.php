@@ -18,7 +18,11 @@ class CreatePerumahansTable extends Migration
             $table->string('image');
             $table->string('lebar');
             $table->string('panjang');
+            $table->integer('kamar');
+            $table->integer('kamar_mandi');
+            $table->integer('garasi');
             $table->longText('alamat');
+            $table->string('kode_pos');
             $table->string('harga');
             $table->longText('keterangan');
             $table->boolean('status');
