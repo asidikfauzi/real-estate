@@ -16,6 +16,7 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignUuid('perumahan_id')->references('id')->on('perumahans')->onDelete('cascade');
+            $table->foreignUuid('agent_id')->references('id')->on('agents')->onDelete('cascade');
             $table->string('cicilan');
             $table->string('total_harga');
             $table->string('image');
