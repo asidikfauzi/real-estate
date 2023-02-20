@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerumahanController;
+use App\Http\Controllers\AgentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -47,6 +48,12 @@ Route::group(['prefix'=>'admin', 'middleware'=>['Admin','auth']], function(){
     Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('admin.edit');
     Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('admin.update');
     Route::get('/terjual/{id}', [App\Http\Controllers\HomeController::class, 'propertyTerjual'])->name('admin.property.terjual');
+
+    Route::get('/agent', [App\Http\Controllers\AgentController::class, 'index'])->name('admin.agent.index');
+    Route::get('/agent/create', [App\Http\Controllers\AgentController::class, 'create'])->name('admin.agent.create');
+    Route::post('/agent/store', [App\Http\Controllers\AgentController::class, 'store'])->name('admin.agent.store');
+    Route::get('/agent/edit/{id}', [App\Http\Controllers\AgentController::class, 'edit'])->name('admin.agent.edit');
+    Route::post('/agent/update/{id}',[App\Http\Controllers\AgentController::class, 'update'])->name('admin.agent.update');
 
 });
 
