@@ -36,16 +36,30 @@ class HomeController extends Controller
         $data = Perumahan::orderBy('created_at', 'DESC')->get();
 
         return DataTables::of($data)->addIndexColumn()
-                ->addColumn('edit', function($row){
+            ->addColumn('edit', function($row){
+                if($row->status != false)
+                {
                     return '<a href="'.route('admin.edit',$row->id).'">
-                    <i class="bi bi-pencil-square" style="color:green; padding: 30%"></i></a>';
-                })
-                ->addColumn('delete', function($row){
+                        <i class="bi bi-pencil-square" style="color:green; padding: 30%"></i></a>';
+                }
+            })
+            ->addColumn('check', function($row){
+                if($row->status != false)
+                {
+                    return '<a href="'.route('admin.property.terjual', $row->id).'">
+                        <i class="bi bi-check-circle" style="color:green; padding: 30%"></i></a>';
+                }
+
+            })
+            ->addColumn('delete', function($row){
+                if($row->status != false)
+                {
                     return '<a href="#">
-                    <i class="bi bi-trash3" style="color:red; padding: 30%;"></i></a>';
-                })
-                ->rawColumns(['edit','delete'])
-                ->make(true);;
+                        <i class="bi bi-trash3" style="color:red; padding: 30%;"></i></a>';
+                }
+            })
+            ->rawColumns(['edit','check','delete'])
+            ->make(true);
     }
 
     public function create()
@@ -130,6 +144,24 @@ class HomeController extends Controller
         $data->update($array);
 
         Alert::success('Success', 'Properties Berhasil Diupdate!');
+        return back();
+    }
+
+    public function propertyTerjual($id)
+    {
+        $data = Perumahan::where('id', $id)->first();
+
+        if(!$data)
+        {
+            Alert::info('Not Found', 'Perumahan Tidak Ditemukan!');
+            return back();
+        }
+
+        $data->update([
+            'status' => false,
+        ]);
+
+        Alert::success('Success', 'Properties Berhasil Terjual!');
         return back();
     }
 }

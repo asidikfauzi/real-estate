@@ -43,8 +43,9 @@
                                       <th>Harga</th>
                                       <th>Keterangan</th>
                                       <th>Status</th>
-                                      <th>Edit</th>
-                                      <th>Delete</th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -111,7 +112,7 @@ console.log('masok')
                 },
                 paging: false,
                 responsive: true,
-                // scrollY:"300px",
+                // scrollY:"50%",
                 scrollX: true,
                 filter : true,
                 lengthChange: false,
@@ -145,12 +146,13 @@ console.log('masok')
                                 if(data == 1) {
                                     return 'Tersedia'
                                 } else {
-                                    return 'terjual'
+                                    return 'Terjual'
                                 }
                             }
                         },
                         {data: 'edit', name: 'edit'},
-                        {data: 'delete', name: 'delete'}
+                        {data: 'check', name: 'check'},
+                        {data: 'delete', name: 'delete'},
                 ]
             });
         }

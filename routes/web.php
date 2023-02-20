@@ -46,6 +46,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>['Admin','auth']], function(){
     Route::post('/store', [App\Http\Controllers\HomeController::class, 'store'])->name('admin.store');
     Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('admin.edit');
     Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('admin.update');
+    Route::get('/terjual/{id}', [App\Http\Controllers\HomeController::class, 'propertyTerjual'])->name('admin.property.terjual');
+
 });
 
 
