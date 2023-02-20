@@ -28,7 +28,9 @@
             </div>
             <div class="col-sm-12 section-t8">
                 <div class="row">
+
                   <div class="col-md-12">
+                    <a class="btn btn-a" href="{{route('admin.agent.index')}}">Agent</a>
                     <form method="POST" action="{{route('admin.store')}}" enctype="multipart/form-data">
                       @csrf
                       <div class="row">
