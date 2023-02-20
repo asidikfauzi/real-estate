@@ -15,6 +15,15 @@ class Storage
       return $name;
     }
 
+    public static function uploadImageAgent($fileImage)
+    {
+      $ext = $fileImage->getClientOriginalExtension();
+      $name = UUid::createNameForImage($ext);
+      $fileImage->move(base_path("public/assets/img/agent"), $name);
+
+      return $name;
+    }
+
     public static function uploadImageMessage($fileImage)
     {
       $ext = $fileImage->getClientOriginalExtension();
