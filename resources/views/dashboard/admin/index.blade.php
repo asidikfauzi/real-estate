@@ -146,7 +146,7 @@ console.log('masok')
                                 if(data == 1) {
                                     return 'Tersedia'
                                 } else {
-                                    return 'Terjual'
+                                    return '<font color="green">Terjual</font>'
                                 }
                             }
                         },
