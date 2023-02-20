@@ -214,6 +214,11 @@
               <div class="title-box">
                 <h2 class="title-a">Best Agents</h2>
               </div>
+              <div class="title-link">
+                <a href="{{route('agent_grid')}}">All Agents
+                  <span class="bi bi-chevron-right"></span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
