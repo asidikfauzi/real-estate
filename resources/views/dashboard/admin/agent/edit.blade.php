@@ -29,7 +29,7 @@
             <div class="col-sm-12 section-t8">
               <div class="row">
                 <div class="col-md-12">
-                  <form method="POST" action="{{route('admin.agent.store')}}" enctype="multipart/form-data">
+                  <form method="POST" action="{{route('admin.agent.update', $data->id)}}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6 mb-3">

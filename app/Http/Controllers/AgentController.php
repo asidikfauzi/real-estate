@@ -40,6 +40,7 @@ class AgentController extends Controller
             'no_telp' => $request->no_telp,
             'keterangan' => $request->keterangan,
             'image' => Storage::uploadImageAgent($request->file('image')),
+            'deleted' => false,
         ]);
 
         Alert::success('Success', 'Agent Berhasil Ditambahkan!');
@@ -50,5 +51,34 @@ class AgentController extends Controller
     {
         $data = Agent::where('id', $id)->first();
         return view('dashboard.admin.agent.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = Agent::where('id', $id)->first();
+
+        $validate = $request->validate([
+            'email' => 'required|string|email|max:255|unique:users,email',
+            'name' => 'required|string',
+            'no_telp' => 'required|string|max:12',
+            'keterangan' => 'required|string',
+            'image' => 'mimes:jpeg,jpg,png,gif|required|max:20000',
+        ]);
+
+        $array = [
+            'email' => $request->email,
+            'name' => $request->name,
+            'no_telp' => $request->no_telp,
+            'keterangan' => $request->keterangan,
+        ];
+
+        if ($request->hasFile('image')) {
+            $array['image'] = Storage::uploadImageAgent($request->file('image'));
+        }
+
+        $data->update($array);
+
+        Alert::success('Success', 'Agent Berhasil Diupdate!');
+        return back();
     }
 }
