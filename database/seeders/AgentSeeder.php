@@ -23,6 +23,7 @@ class AgentSeeder extends Seeder
                 'no_telp' => '087890987654',
                 'keterangan' => 'Agent Rahasia',
                 'image' => 'angga.jpg',
+                'deleted' => false,
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
@@ -33,6 +34,7 @@ class AgentSeeder extends Seeder
                 'no_telp' => '081829098391',
                 'keterangan' => 'Agent Mabok',
                 'image' => 'mabok.jpg',
+                'deleted' => false,
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
@@ -43,6 +45,7 @@ class AgentSeeder extends Seeder
                 'no_telp' => '087000987890',
                 'keterangan' => 'Agent Serdadu',
                 'image' => 'serdadu.jpg',
+                'deleted' => false,
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ]

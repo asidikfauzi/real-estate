@@ -26,6 +26,7 @@ class CreatePerumahansTable extends Migration
             $table->string('harga');
             $table->longText('keterangan');
             $table->boolean('status');
+            $table->boolean('deleted');
             $table->timestamps();
         });
     }

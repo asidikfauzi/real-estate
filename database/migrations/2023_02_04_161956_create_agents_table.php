@@ -20,6 +20,7 @@ class CreateAgentsTable extends Migration
             $table->string('no_telp');
             $table->string('keterangan');
             $table->longText('image');
+            $table->boolean('deleted');
             $table->timestamps();
         });
     }

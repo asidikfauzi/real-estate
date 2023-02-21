@@ -29,6 +29,7 @@ class PerumahanSeeder extends Seeder
                 'harga' => '150000000',
                 'keterangan' => 'Di jual tanpa perantara',
                 'status' => true,
+                'deleted' => false,
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
@@ -45,6 +46,7 @@ class PerumahanSeeder extends Seeder
                 'harga' => '170000000',
                 'keterangan' => 'Di jual tanpa perantara',
                 'status' => true,
+                'deleted' => false,
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
@@ -61,6 +63,7 @@ class PerumahanSeeder extends Seeder
                 'harga' => '260000000',
                 'keterangan' => 'Di jual tanpa perantara',
                 'status' => true,
+                'deleted' => false,
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ]
