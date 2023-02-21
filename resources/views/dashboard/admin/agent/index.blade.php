@@ -59,6 +59,7 @@
                             <strong>Email: </strong> {{$item->email}}
                           </p>
                           <a href="{{route('admin.agent.edit', $item->id)}}" class="btn btn-a mt-5">Edit</a>
+                          <a href="{{route('admin.agent.edit', $item->id)}}" class="btn btn-a mt-5" style="background: red">Delete</a>
                         </div>
 
                       </div>
