@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Perumahan;
+use App\Models\Agent;
 
 class PerumahanController extends Controller
 {
@@ -17,8 +18,9 @@ class PerumahanController extends Controller
         //
         $display = Perumahan::where('status', true)->orderBy('created_at', 'DESC')->limit(3)->get();
         $properties = Perumahan::where('status', true)->orderBy('created_at', 'DESC')->get();
+        $agents = Agent::where('deleted', 'false')->orderBy('created_at', 'ASC')->limit(3)->get();
 
-        return view('layouts.index', compact('display', 'properties'));
+        return view('layouts.index', compact('display', 'properties', 'agents'));
     }
 
     public function about()
@@ -39,7 +41,8 @@ class PerumahanController extends Controller
 
     public function agentSingle()
     {
-        return view('layouts.agent-single');
+        $agent = Agent::where('deleted', 'false')->get();
+        return view('layouts.agent-single', compact('agent'));
     }
 
     public function agentGrid()
