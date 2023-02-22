@@ -95,6 +95,7 @@ class HomeController extends Controller
             'harga' => $request->harga,
             'keterangan' => $request->keterangan,
             'status' => true,
+            'deleted' => false,
         ]);
 
         Alert::success('Success', 'Properties Berhasil Ditambahkan!');
