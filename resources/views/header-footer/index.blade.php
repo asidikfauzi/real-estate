@@ -171,7 +171,7 @@
               <a class="dropdown-item " href="{{route('property_single')}}">Property Single</a>
               <a class="dropdown-item " href="{{route('blog_single')}}">Blog Single</a>
               <a class="dropdown-item " href="{{route('agent_grid')}}">Agents Grid</a>
-              <a class="dropdown-item " href="{{route('agent_single')}}">Agent Single</a>
+              <a class="dropdown-item " href="{{ route('agent_single', $agent->id) }}">Agent Single</a>
             </div>
           </li>
           <li class="nav-item">

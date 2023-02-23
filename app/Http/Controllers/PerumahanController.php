@@ -39,15 +39,16 @@ class PerumahanController extends Controller
         return view('layouts.property-grid', compact('properties'));
     }
 
-    public function agentSingle()
+    public function agentSingle($id)
     {
-        $agent = Agent::where('deleted', 'false')->get();
+        $agent = Agent::where('deleted', 'false')->where('id', $id)->first();
         return view('layouts.agent-single', compact('agent'));
     }
 
     public function agentGrid()
     {
-        return view('layouts.agents-grid');
+        $agents = Agent::where('deleted', 'false')->orderBy('created_at', 'ASC')->paginate(6);
+        return view('layouts.agents-grid', compact('agents'));
     }
 
     public function blogSingle()
