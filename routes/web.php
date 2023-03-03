@@ -29,7 +29,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register-user', [RegisterController::class, 'index'])->name('authRegister.user');
 Route::post('/register-user', [RegisterController::class, 'registerUser'])->name('authRegister.user');
 
-
 Route::get('/', [PerumahanController::class, 'index'])->name('index');
 Route::get('/about', [PerumahanController::class, 'about'])->name('about');
 Route::get('/property-single', [PerumahanController::class, 'propertySingle'])->name('property_single');

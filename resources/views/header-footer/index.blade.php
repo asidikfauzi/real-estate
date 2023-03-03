@@ -45,7 +45,7 @@
   <!-- ======= Property Search Section ======= -->
   <div class="click-closed"></div>
   <!--/ Form Search Star /-->
-  <div class="box-collapse">
+  {{-- <div class="box-collapse">
     <div class="title-box-d">
       <h3 class="title-d">Search Property</h3>
     </div>
@@ -134,7 +134,7 @@
         </div>
       </form>
     </div>
-  </div><!-- End Property Search Section -->>
+  </div><!-- End Property Search Section -->> --}}
 
   <!-- ======= Header/Navbar ======= -->
   <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
@@ -165,15 +165,14 @@
             <a class="nav-link " href="{{route('blog_grid')}}">Blog</a>
           </li>
 
-          <li class="nav-item dropdown">
+          {{-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
             <div class="dropdown-menu">
               <a class="dropdown-item " href="{{route('property_single')}}">Property Single</a>
               <a class="dropdown-item " href="{{route('blog_single')}}">Blog Single</a>
               <a class="dropdown-item " href="{{route('agent_grid')}}">Agents Grid</a>
-              <a class="dropdown-item " href="{{ route('agent_single', $agent->id) }}">Agent Single</a>
             </div>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link " href="{{route('contact')}}">Contact</a>
           </li>
