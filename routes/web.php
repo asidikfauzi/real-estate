@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerumahanController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -55,6 +56,13 @@ Route::group(['prefix'=>'admin', 'middleware'=>['Admin','auth']], function(){
     Route::post('/agent/update/{id}',[App\Http\Controllers\AgentController::class, 'update'])->name('admin.agent.update');
 
 });
+
+Route::group(['prefix'=>'user', 'middleware'=>['User','auth']], function(){
+    Route::get('/home', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+
+});
+
+
 
 
 

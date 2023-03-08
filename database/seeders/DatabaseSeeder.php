@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PerumahanSeeder::class,
             AgentSeeder::class,
+            PesanSeeder::class,
         ]);
     }
 }
