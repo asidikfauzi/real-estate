@@ -18,9 +18,8 @@ class CreatePesansTable extends Migration
             $table->foreign('user_from')->references('id')->on('users')->onDelete('cascade');
             $table->foreignUuid('user_to');
             $table->foreign('user_to')->references('id')->on('users')->onDelete('cascade');
-            $table->string('header');
             $table->longtext('keterangan');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

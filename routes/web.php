@@ -60,6 +60,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>['Admin','auth']], function(){
 Route::group(['prefix'=>'user', 'middleware'=>['User','auth']], function(){
     Route::get('/home', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
 
+    Route::post('/pesan', [App\Http\Controllers\UserController::class, 'sendPesan'])->name('user.sendPesan');
+
 });
 
 

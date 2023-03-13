@@ -165,6 +165,11 @@
                                             <div class="chat-message">
                                                 <h5>{{$item->email}}</h5>
                                                 <p><?= str_replace('\n', '<br>', $item->keterangan) ?></p>
+                                                @if($item->image != null)
+                                                <a href="{{asset('assets/img/message/'. $item->image)}}" target="_blank">
+                                                    <img src="{{asset('assets/img/message/'. $item->image)}}" alt="image pesan" style="height: 100px">
+                                                </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </li>
@@ -173,14 +178,18 @@
                             </ul>
                         </div>
                     </div>
-                    <textarea name="message" class="form-control" id="message" cols="2" rows="2"></textarea>
-                    <button class="form-control mt-2 btn btn-a">Send</button>
+                    <form method='post' action="{{route('user.sendPesan')}}" enctype="multipart/form-data">
+                        @csrf
+                        <textarea name="isi_pesan" class="form-control" placeholder="Tulis Pesan. . ." id="message" cols="2" rows="2"></textarea>
+                        <input type="file" name="image" class="form-control">
+                        <button class="form-control mt-2 btn btn-a">Send</button>
+                    </form>
                   </div>
                 </div>
               </div>
           </div>
         </div>
-      </section><!-- End Intro Single-->
+    </section><!-- End Intro Single-->
 
     <!-- ======= Contact Single ======= -->
     <section class="contact">
