@@ -186,14 +186,20 @@
                 <div class="dropdown-menu">
                     @if(Auth::user()->role == 'admin')
                     <a class="dropdown-item " href="{{route('admin.index')}}">Management</a>
-                    @else
-                    @endif
                     <a class="dropdown-item " href="#">Message</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
+                    @else
+                    <a class="dropdown-item " href="{{route('user.index')}}">Message</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    @endif
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
