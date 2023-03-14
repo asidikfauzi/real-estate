@@ -16,16 +16,16 @@ class PesanSeeder extends Seeder
     {
         $pesans = [
             [
-                'user_from' => '1ef480f4-85fb-4898-a134-ed3f5c6ea711', //angga
-                'user_to' => '922933f6-802f-44ba-a79a-d48949fe43de', //admin
+                'user_from' => '922933f6-802f-44ba-a79a-d48949fe43de', //angga
+                'user_to' => '1ef480f4-85fb-4898-a134-ed3f5c6ea711', //admin
                 'keterangan' => 'Mas perumahan di lippo 097 saya ingin pesan',
                 'image' => '',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
             [
-                'user_from' => '922933f6-802f-44ba-a79a-d48949fe43de',
-                'user_to' => '1ef480f4-85fb-4898-a134-ed3f5c6ea711',
+                'user_from' => '1ef480f4-85fb-4898-a134-ed3f5c6ea711',
+                'user_to' => '922933f6-802f-44ba-a79a-d48949fe43de',
                 'keterangan' => 'Baik mas silahkan DP terlebih dahulu di rekening
                         \n 08899087871 BCA \n atas nama KOLONEL MUKIDI
                         \n dan kirimkan syarat kemampuan ninja warior',
@@ -34,8 +34,8 @@ class PesanSeeder extends Seeder
                 'updated_at' => date("Y-m-d H:i:s"),
             ],
             [
-                'user_from' => '1ef480f4-85fb-4898-a134-ed3f5c6ea711', //angga
-                'user_to' => '922933f6-802f-44ba-a79a-d48949fe43de', //admin
+                'user_from' => '922933f6-802f-44ba-a79a-d48949fe43de', //angga
+                'user_to' => '1ef480f4-85fb-4898-a134-ed3f5c6ea711', //admin
                 'keterangan' => 'Baik mas saya akan kirimkan',
                 'image' => '',
                 'created_at' => date("Y-m-d H:i:s"),
