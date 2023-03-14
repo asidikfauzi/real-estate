@@ -115,8 +115,8 @@ class UserController extends Controller
         ]);
 
         $array = [
-            'user_from' => '1ef480f4-85fb-4898-a134-ed3f5c6ea711',
-            'user_to' => Auth::user()->id,
+            'user_from' => Auth::user()->id,
+            'user_to' => '1ef480f4-85fb-4898-a134-ed3f5c6ea711',
             'keterangan' => $request->isi_pesan,
         ];
 
