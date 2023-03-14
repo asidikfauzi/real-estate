@@ -25,10 +25,10 @@ class UserController extends Controller
                     'users.email',
                     'pesans.created_at')
                 ->join('users', function($join){
-                    $join->on('users.id','=','pesans.user_to');
+                    $join->on('users.id','=','pesans.user_from');
                 })
-                ->where('pesans.user_from', Auth::user()->id)
-                ->orWhere('pesans.user_to', Auth::user()->id)
+                ->where('pesans.user_to', Auth::user()->id)
+                ->orWhere('pesans.user_from', Auth::user()->id)
                 ->orderBy('pesans.created_at', 'ASC')
                 ->get()
                 ->unique('keterangan');

@@ -2,203 +2,77 @@
 
 @section('content')
 
-<style>
-    body{
-    background:#eee;
-}
-.chat-list {
-    padding: 0;
-    font-size: .8rem;
-}
 
-.chat-list li {
-    margin-bottom: 10px;
-    overflow: auto;
-    color: #ffffff;
-}
-
-.chat-list .chat-img {
-    float: left;
-    width: 48px;
-}
-
-.chat-list .chat-img img {
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-    width: 100%;
-}
-
-.chat-list .chat-message {
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-    background: #5a99ee;
-    display: inline-block;
-    padding: 10px 20px;
-    position: relative;
-}
-
-.chat-list .chat-message:before {
-    content: "";
-    position: absolute;
-    top: 15px;
-    width: 0;
-    height: 0;
-}
-
-.chat-list .chat-message h5 {
-    margin: 0 0 5px 0;
-    font-weight: 600;
-    line-height: 100%;
-    font-size: .9rem;
-}
-
-.chat-list .chat-message p {
-    line-height: 18px;
-    margin: 0;
-    padding: 0;
-}
-
-.chat-list .chat-body {
-    margin-left: 20px;
-    float: left;
-    width: 70%;
-}
-
-.chat-list .in .chat-message:before {
-    left: -12px;
-    border-bottom: 20px solid transparent;
-    border-right: 20px solid #5a99ee;
-}
-
-.chat-list .out .chat-img {
-    float: right;
-}
-
-.chat-list .out .chat-body {
-    float: right;
-    margin-right: 20px;
-    text-align: right;
-}
-
-.chat-list .out .chat-message {
-    background: #fc6d4c;
-}
-
-.chat-list .out .chat-message:before {
-    right: -12px;
-    border-bottom: 20px solid transparent;
-    border-left: 20px solid #fc6d4c;
-}
-
-.card .card-header:first-child {
-    -webkit-border-radius: 0.3rem 0.3rem 0 0;
-    -moz-border-radius: 0.3rem 0.3rem 0 0;
-    border-radius: 0.3rem 0.3rem 0 0;
-}
-.card .card-header {
-    background: #17202b;
-    border: 0;
-    font-size: 1rem;
-    padding: .65rem 1rem;
-    position: relative;
-    font-weight: 600;
-    color: #ffffff;
-}
-
-.content{
-    margin-top:40px;
-}
-
-</style>
-
-<main id="main">
-
+<main class="main">
     <!-- ======= Intro Single ======= -->
     <section class="intro-single">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 col-lg-8">
-              <div class="title-single-box">
-                <h1 class="title-single">MESSAGE</h1>
-              </div>
-            </div>
-            <div class="col-md-12 col-lg-4">
-              <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">
-                    <a href="#">Home</a>
-                  </li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    Daftar
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div class="col-sm-12 section-t8">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">Message</div>
-                        <div class="card-body height3">
-                            <ul class="chat-list">
-                                @foreach ($data as $item)
-                                    @if($item->user_to !== \Auth::user()->id)
-                                    <li class="in">
-                                        <div class="chat-img">
-                                            <img alt="Avtar" src="https://bootdey.com/img/Content/avatar/avatar1.png">
-                                        </div>
-                                        <div class="chat-body">
-                                            <div class="chat-message">
-                                                <h5>{{$item->email}}</h5>
-                                                <p><?= str_replace('\n', '<br>', $item->keterangan) ?></p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    @else
-                                    <li class="out">
-                                        <div class="chat-img">
-                                            <img alt="Avtar" src="https://bootdey.com/img/Content/avatar/avatar6.png">
-                                        </div>
-                                        <div class="chat-body">
-                                            <div class="chat-message">
-                                                <h5>{{$item->email}}</h5>
-                                                <p><?= str_replace('\n', '<br>', $item->keterangan) ?></p>
-                                                @if($item->image != null)
-                                                <a href="{{asset('assets/img/message/'. $item->image)}}" target="_blank">
-                                                    <img src="{{asset('assets/img/message/'. $item->image)}}" alt="image pesan" style="height: 100px">
-                                                </a>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </li>
-                                    @endif
-                                @endforeach
-                            </ul>
+        <div class="container p-0">
+            <h1 class="h3 mb-3">Messages</h1>
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-12 col-lg-12 col-xl-12">
+                        <div class="py-2 px-4 border-bottom d-none d-lg-block">
+                            <div class="d-flex align-items-center py-1">
+                                <div class="position-relative">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+                                </div>
+                                <div class="flex-grow-1 pl-3">
+                                    <strong>&nbsp;Admin</strong>
+                                </div>
+
+                            </div>
                         </div>
+
+                        <div class="position-relative">
+
+                            <div class="chat-messages p-4">
+                                @foreach ($data as $item)
+                                @if($item->user_to === \Auth::user()->id)
+                                <div class="chat-message-left pb-4">
+                                    <div>
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="Sharon Lessman" width="40" height="40">
+                                    </div>
+                                    <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
+                                        <div class="font-weight-bold mb-1">{{$item->email}}</div>
+                                        <?= str_replace('\n', '<br>', $item->keterangan) ?>
+                                        <div class="text-muted small text-nowrap mt-2">{{$item->created_at->format('l, H:i')}}</div>
+                                    </div>
+                                </div>
+                                @else
+                                <div class="chat-message-right pb-4">
+                                    <div>
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+                                    </div>
+                                    <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
+                                        <div class="font-weight-bold mb-1">You</div>
+                                        <?= str_replace('\n', '<br>', $item->keterangan) ?>
+                                        @if($item->image != null)
+                                            <a href="{{asset('assets/img/message/'. $item->image)}}" target="_blank">
+                                                <img src="{{asset('assets/img/message/'. $item->image)}}" alt="image pesan" style="height: 100px">
+                                            </a>
+                                        @endif
+                                        <div class="text-muted small text-nowrap mt-2">{{$item->created_at->format('l, H:i')}}</div>
+                                    </div>
+                                </div>
+                                @endif
+                                @endforeach
+                            </div>
+                        </div>
+                        <form method='post' action="{{route('user.sendPesan')}}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="flex-grow-0 py-3 px-4 border-top">
+                                <div class="input-group">
+                                    <input type="file" name="image" style="width: 20%">
+                                    <input type="text" class="form-control" name="isi_pesan" placeholder="Type your message">
+                                    <button class="btn btn-primary">Send</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <form method='post' action="{{route('user.sendPesan')}}" enctype="multipart/form-data">
-                        @csrf
-                        <textarea name="isi_pesan" class="form-control" placeholder="Tulis Pesan. . ." id="message" cols="2" rows="2"></textarea>
-                        <input type="file" name="image" class="form-control">
-                        <button class="form-control mt-2 btn btn-a">Send</button>
-                    </form>
-                  </div>
                 </div>
-              </div>
-          </div>
+            </div>
         </div>
-    </section><!-- End Intro Single-->
-
-    <!-- ======= Contact Single ======= -->
-    <section class="contact">
-        <div class="container">
-          <div class="row">
-
-          </div>
-        </div>
-      </section><!-- End Contact Single-->
-
+    </section>
 </main>
+
 @endsection
