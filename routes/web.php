@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PerumahanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -54,6 +55,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>['Admin','auth']], function(){
     Route::post('/agent/store', [App\Http\Controllers\AgentController::class, 'store'])->name('admin.agent.store');
     Route::get('/agent/edit/{id}', [App\Http\Controllers\AgentController::class, 'edit'])->name('admin.agent.edit');
     Route::post('/agent/update/{id}',[App\Http\Controllers\AgentController::class, 'update'])->name('admin.agent.update');
+
+    Route::get('/pesan', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.pesan.index');
+    Route::get('/pesan/{id}', [App\Http\Controllers\AdminController::class, 'show'])->name('admin.pesan.show');
+    Route::post('/pesan', [App\Http\Controllers\AdminController::class, 'sendPesan'])->name('admin.sendPesan');
 
 });
 
