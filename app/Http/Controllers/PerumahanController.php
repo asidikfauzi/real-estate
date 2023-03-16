@@ -28,9 +28,10 @@ class PerumahanController extends Controller
         return view('layouts.about');
     }
 
-    public function propertySingle()
+    public function propertySingle($id)
     {
-        return view('layouts.property-single');
+        $properties = Perumahan::where('id', $id)->first();
+        return view('layouts.property-single', compact('properties'));
     }
 
     public function propertyGrid()

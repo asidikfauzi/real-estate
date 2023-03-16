@@ -33,7 +33,7 @@ Route::post('/register-user', [RegisterController::class, 'registerUser'])->name
 
 Route::get('/', [PerumahanController::class, 'index'])->name('index');
 Route::get('/about', [PerumahanController::class, 'about'])->name('about');
-Route::get('/property-single', [PerumahanController::class, 'propertySingle'])->name('property_single');
+Route::get('/property-single/{id}', [PerumahanController::class, 'propertySingle'])->name('property_single');
 Route::get('/property-grid', [PerumahanController::class, 'propertyGrid'])->name('property_grid');
 Route::get('/agent-single/{id}', [PerumahanController::class, 'agentSingle'])->name('agent_single');
 Route::get('/agents-grid', [PerumahanController::class, 'agentGrid'])->name('agent_grid');

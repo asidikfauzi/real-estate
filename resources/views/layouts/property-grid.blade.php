@@ -63,7 +63,7 @@
                     <div class="price-box d-flex">
                       <span class="price-a">rent | Rp {{number_format($item->harga)}}</span>
                     </div>
-                    <a href="property-single.html" class="link-a">Click here to view
+                    <a href="{{route('property_single', $item->id)}}" class="link-a">Click here to view
                       <span class="bi bi-chevron-right"></span>
                     </a>
                   </div>
