@@ -35,7 +35,7 @@
                                     <div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
                                         <div class="font-weight-bold mb-1">{{$item->email}}</div>
                                         <?= str_replace('\n', '<br>', $item->keterangan) ?>
-                                        <div class="text-muted small text-nowrap mt-2">{{$item->created_at->format('l, H:i')}}</div>
+                                        <div class="text-muted small text-nowrap mt-2">{{$item->created_at->format('l, d/m/Y H:i')}}</div>
                                     </div>
                                 </div>
                                 @else
@@ -51,7 +51,7 @@
                                                 <img src="{{asset('assets/img/message/'. $item->image)}}" alt="image pesan" style="height: 100px">
                                             </a>
                                         @endif
-                                        <div class="text-muted small text-nowrap mt-2">{{$item->created_at->format('l, H:i')}}</div>
+                                        <div class="text-muted small text-nowrap mt-2">{{$item->created_at->format('l, d/m/Y H:i')}}</div>
                                     </div>
                                 </div>
                                 @endif
