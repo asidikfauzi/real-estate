@@ -161,9 +161,9 @@
             <a class="nav-link " href="{{route('property_grid')}}">Property</a>
           </li>
 
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link " href="{{route('blog_grid')}}">Blog</a>
-          </li>
+          </li> --}}
 
           {{-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
