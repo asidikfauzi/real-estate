@@ -186,7 +186,7 @@
                 <div class="dropdown-menu">
                     @if(Auth::user()->role == 'admin')
                     <a class="dropdown-item " href="{{route('admin.index')}}">Management</a>
-                    <a class="dropdown-item " href="#">Message</a>
+                    <a class="dropdown-item " href="{{ route('admin.pesan.index') }}">Message</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
