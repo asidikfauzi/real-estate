@@ -14,7 +14,7 @@ class AgentController extends Controller
     public function index()
     {
         //
-        $agents = Agent::orderBy('created_at', 'DESC')->paginate(6);
+        $agents = Agent::where('deleted', false)->orderBy('created_at', 'DESC')->paginate(6);
         return view('dashboard.admin.agent.index', compact('agents'));
     }
 
@@ -79,6 +79,15 @@ class AgentController extends Controller
         $data->update($array);
 
         Alert::success('Success', 'Agent Berhasil Diupdate!');
+        return back();
+    }
+
+    public function delete($id)
+    {
+        $data = Agent::where('id', $id)->first();
+        $data->deleted = true;
+        $data->save();
+
         return back();
     }
 }

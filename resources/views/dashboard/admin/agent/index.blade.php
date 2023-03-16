@@ -3,6 +3,7 @@
 @section('content')
 
   <main id="main">
+    @include('sweetalert::alert')
     <!-- =======Intro Single ======= -->
     <section class="intro-single">
       <div class="container">
@@ -59,7 +60,7 @@
                             <strong>Email: </strong> {{$item->email}}
                           </p>
                           <a href="{{route('admin.agent.edit', $item->id)}}" class="btn btn-a mt-5">Edit</a>
-                          <a href="{{route('admin.agent.edit', $item->id)}}" class="btn btn-a mt-5" style="background: red">Delete</a>
+                          <a class="btn btn-a mt-5 modal-delete" id="modal-delete" data-id="{{$item->id}}" href="#" style="background: red">Delete</a>
                         </div>
 
                       </div>
@@ -98,7 +99,7 @@
           <div class="col-sm-12">
             <nav class="pagination-a">
               <ul class="pagination justify-content-end">
-                <li class="page-item" style="padding: 0.5rem">
+                <li class="page-item">
                     {{ $agents->links() }}
                 </li>
               </ul>
@@ -110,3 +111,33 @@
 
   </main><!-- End #main -->
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".modal-delete").click(function(event) {
+
+            var judulid = $(this).attr('data-id');
+            console.log(judulid);
+            swal({
+                title: "Yakin?",
+                text: "kamu akan menghapus data ini ?",
+                icon: "warning",
+                buttons: ["Batal", "OK"],
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                if (willDelete) {
+                    window.location = "/admin/agent/delete/"+judulid+""
+                    swal("Data berhasil dihapus", {
+                    icon: "success",
+                    });
+                } else {
+                    swal("Data Tidak Jadi dihapus");
+                }
+            });
+        });
+    })
+</script>

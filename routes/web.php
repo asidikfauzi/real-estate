@@ -55,6 +55,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>['Admin','auth']], function(){
     Route::post('/agent/store', [App\Http\Controllers\AgentController::class, 'store'])->name('admin.agent.store');
     Route::get('/agent/edit/{id}', [App\Http\Controllers\AgentController::class, 'edit'])->name('admin.agent.edit');
     Route::post('/agent/update/{id}',[App\Http\Controllers\AgentController::class, 'update'])->name('admin.agent.update');
+    Route::get('/agent/delete/{id}',[App\Http\Controllers\AgentController::class, 'delete'])->name('admin.agent.delete');
 
     Route::get('/pesan', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.pesan.index');
     Route::get('/pesan/{id}', [App\Http\Controllers\AdminController::class, 'show'])->name('admin.pesan.show');
