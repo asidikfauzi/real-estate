@@ -36,7 +36,7 @@ class PerumahanController extends Controller
 
     public function propertyGrid()
     {
-        $properties = Perumahan::where('status', true)->orderBy('created_at', 'DESC')->paginate(6);
+        $properties = Perumahan::where('status', true)->orderBy('created_at', 'DESC')->simplePaginate(6);
         return view('layouts.property-grid', compact('properties'));
     }
 
@@ -48,7 +48,7 @@ class PerumahanController extends Controller
 
     public function agentGrid()
     {
-        $agents = Agent::where('deleted', 'false')->orderBy('created_at', 'ASC')->paginate(6);
+        $agents = Agent::where('deleted', 'false')->orderBy('created_at', 'ASC')->simplePaginate(6);
         return view('layouts.agents-grid', compact('agents'));
     }
 

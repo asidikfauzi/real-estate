@@ -2,7 +2,6 @@
 
 @section('content')
   <main id="main">
-
     <!-- ======= Intro Single ======= -->
     <section class="intro-single">
       <div class="container">
@@ -28,7 +27,6 @@
         </div>
       </div>
     </section><!-- End Intro Single-->
-
     <!-- ======= Property Grid ======= -->
     <section class="property-grid grid">
       <div class="container">
@@ -45,7 +43,6 @@
               </form>
             </div>
           </div>
-
           @foreach ($properties as $item)
           <div class="col-md-4">
             <div class="card-box-a card-shadow">
@@ -97,23 +94,13 @@
         </div>
         <div class="row">
           <div class="col-sm-12">
-            <nav class="pagination-a">
-              <ul class="pagination justify-content-end">
-                {{-- <li class="page-item" style="padding: 0.5rem">
-                    Halaman {{ $properties->currentPage() }}
-                </li>
-                <li class="page-item" style="padding: 0.5rem">
-                    Jumlah Data {{ $properties->total() }}
-                </li>
-                <li class="page-item" style="padding: 0.5rem">
-                    Data /Halaman {{ $properties->perPage() }}
-                </li> --}}
-                <li class="page-item" style="padding: 0.5rem">
+            <div class="pagination-a">
+              <div class="pagination justify-content-end">
+                <div class="page-item">
                     {{ $properties->links() }}
-                </li>
-
-              </ul>
-            </nav>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
