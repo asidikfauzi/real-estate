@@ -33,7 +33,30 @@ class PerumahanController extends Controller
         $properties = Perumahan::where('id', $id)->first();
         $agents = Agent::all();
 
-        return view('layouts.property-single', compact('properties', 'agents'));
+        $tunai = $properties->harga;
+        $limaTahun = ($properties->harga + ($properties->harga * 0.1)) / 60;
+        $sepuluhTahun = ($properties->harga + ($properties->harga * 0.2)) / 120;
+        $limabelasTahun = ($properties->harga + ($properties->harga * 0.3)) / 180;
+        $duapuluhTahun = ($properties->harga + ($properties->harga * 0.4)) / 240;
+
+        $totalLimaTahun = ($properties->harga + ($properties->harga * 0.1));
+        $totalSepuluhTahun = ($properties->harga + ($properties->harga * 0.2));
+        $totalLimabelasTahun = ($properties->harga + ($properties->harga * 0.3));
+        $totalDuapuluhTahun = ($properties->harga + ($properties->harga * 0.4));
+
+        return view('layouts.property-single', compact(
+            'properties',
+            'agents',
+            'limaTahun',
+            'sepuluhTahun',
+            'limabelasTahun',
+            'duapuluhTahun',
+            'totalLimaTahun',
+            'totalSepuluhTahun',
+            'totalLimabelasTahun',
+            'totalDuapuluhTahun',
+            'tunai',
+        ));
     }
 
     public function propertyGrid()
