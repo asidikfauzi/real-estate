@@ -31,8 +31,9 @@ class PerumahanController extends Controller
     public function propertySingle($id)
     {
         $properties = Perumahan::where('id', $id)->first();
+        $agents = Agent::all();
 
-        return view('layouts.property-single', compact('properties'));
+        return view('layouts.property-single', compact('properties', 'agents'));
     }
 
     public function propertyGrid()
