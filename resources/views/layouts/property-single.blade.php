@@ -217,39 +217,73 @@
                                 <label class="btn btn-outline-success" for="success-outlined-4" style="width: 100%;">20 Tahun : Rp. {{number_format($duapuluhTahun)}} <br> Total: Rp. {{number_format($totalDuapuluhTahun)}}</label>
                             </div>
                         </div>
-                      <div class="col-md-12 mb-1">
-                        <div class="form-group">
-                          <input type="text" name="name" class="form-control form-control-lg form-control-a" id="inputName" placeholder="Name *" required>
+                        @error('cicilan')
+                                <div style="font-size: 12px; color: red">{{ $message }}</div>
+                        @enderror
+                        <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                            <input type="text" name="name" class="form-control form-control-lg form-control-a" id="inputName" placeholder="Name *" required>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-12 mb-1">
-                        <div class="form-group">
-                          <input type="email" name="email" class="form-control form-control-lg form-control-a" id="inputEmail1" placeholder="Email *" required>
+                        @error('cicilan')
+                            <div style="font-size: 12px; color: red">{{ $message }}</div>
+                        @enderror
+                        <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                            <input type="email" name="email" class="form-control form-control-lg form-control-a" id="inputEmail1" placeholder="Email *" required>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-12 mb-1">
-                        <div class="form-group">
-                          <input type="text" name="no_telp" class="form-control form-control-lg form-control-a" id="inputNoTelp" placeholder="No. WhatsApp *" required>
+                        @error('email')
+                            <div style="font-size: 12px; color: red">{{ $message }}</div>
+                        @enderror
+                        <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                            <input type="text" name="no_telp" class="form-control form-control-lg form-control-a" id="inputNoTelp" placeholder="No. WhatsApp *" required>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-12 mb-1">
-                        <div class="form-group">
-                            <select name="agent" class="form-control form-control-lg form-control-a" id="agent">
-                                <option value="">--Pilih Agent--</option>
-                                @foreach ($agents as $item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
-                                @endforeach
-                            </select>
+                        @error('no_telp')
+                            <div style="font-size: 12px; color: red">{{ $message }}</div>
+                        @enderror
+                        <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                            <input type="file" name="image" class="form-control form-control-lg form-control-a" id="inputImage" placeholder="Upload Image *" required>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-12 mb-1">
-                        <div class="form-group">
-                          <textarea id="textMessage" class="form-control" placeholder="Keterangan *" name="message" cols="45" rows="8" required></textarea>
+                        @error('image')
+                            <div style="font-size: 12px; color: red">{{ $message }}</div>
+                        @enderror
+                        <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                                <select name="agent" class="form-control form-control-lg form-control-a" id="agent">
+                                    <option value="">--Pilih Agent--</option>
+                                    @foreach ($agents as $item)
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-12 mt-3">
-                        <button type="submit" class="btn btn-a">Send Message</button>
-                      </div>
+                        @error('agent')
+                            <div style="font-size: 12px; color: red">{{ $message }}</div>
+                        @enderror
+                        <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                            <textarea id="textMessage" class="form-control" placeholder="Keterangan *" name="keterangan" cols="45" rows="8" required></textarea>
+                            </div>
+                        </div>
+                        @error('keterangan')
+                            <div style="font-size: 12px; color: red">{{ $message }}</div>
+                        @enderror
+                        @if(Auth::user())
+                            @if(Auth::user()->role == 'user')
+                                <div class="col-md-12 mt-3">
+                                    <button type="submit" class="btn btn-a">Send Message</button>
+                                </div>
+                            @endif
+                        @else
+                            <div class="col-md-12 mt-3">
+                                <button type="submit" onclick="window.location='{{route('authLogin')}}'" class="btn btn-a">Send Message</button>
+                            </div>
+                        @endif
                     </div>
                   </form>
                 </div>
