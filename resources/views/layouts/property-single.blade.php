@@ -35,21 +35,6 @@
     <!-- ======= Property Single ======= -->
     <section class="property-single nav-arrow-b">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div id="property-single-carousel" class="swiper">
-              <div class="swiper-wrapper">
-                <div class="carousel-item-b swiper-slide">
-                  <img src="assets/img/slide-1.jpg" alt="">
-                </div>
-                <div class="carousel-item-b swiper-slide">
-                  <img src="assets/img/slide-2.jpg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="property-single-carousel-pagination carousel-pagination"></div>
-          </div>
-        </div>
 
         <div class="row">
           <div class="col-sm-12">
@@ -198,10 +183,40 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12 col-lg-6">
+              <div class="col-md-12 col-lg-12">
                 <div class="property-contact">
                   <form class="form-a">
                     <div class="row">
+                        <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-1" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-1" style="width: 100%;">Tunai : Rp. {{number_format($tunai)}}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-1" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-1" style="width: 100%;">5 Tahun : Rp. {{number_format($limaTahun)}} <br> Total: Rp. {{number_format($totalLimaTahun)}}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-2" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-2" style="width: 100%;">10 Tahun : Rp. {{number_format($sepuluhTahun)}}<br> Total: Rp. {{number_format($totalSepuluhTahun)}}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-3" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-3" style="width: 100%;">15 Tahun : Rp. {{number_format($limabelasTahun)}} <br> Total: Rp. {{number_format($totalLimabelasTahun)}}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-1">
+                            <div class="form-group">
+                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-4" autocomplete="off">
+                                <label class="btn btn-outline-success" for="success-outlined-4" style="width: 100%;">20 Tahun : Rp. {{number_format($duapuluhTahun)}} <br> Total: Rp. {{number_format($totalDuapuluhTahun)}}</label>
+                            </div>
+                        </div>
                       <div class="col-md-12 mb-1">
                         <div class="form-group">
                           <input type="text" name="name" class="form-control form-control-lg form-control-a" id="inputName" placeholder="Name *" required>
@@ -229,7 +244,7 @@
                       </div>
                       <div class="col-md-12 mb-1">
                         <div class="form-group">
-                          <textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45" rows="8" required></textarea>
+                          <textarea id="textMessage" class="form-control" placeholder="Keterangan *" name="message" cols="45" rows="8" required></textarea>
                         </div>
                       </div>
                       <div class="col-md-12 mt-3">
@@ -247,3 +262,4 @@
 
   </main><!-- End #main -->
 @endsection
+
