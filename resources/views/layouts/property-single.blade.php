@@ -113,6 +113,50 @@
                         <strong>Garage:</strong>
                         <span>{{$properties->garasi}}</span>
                       </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Pondasi:</strong>
+                        <span>{{$properties->pondasi}}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Struktur:</strong>
+                        <span>{{$properties->struktur}}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Atap:</strong>
+                        <span>{{$properties->atap}}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Dinding:</strong>
+                        <span>{{$properties->dinding}}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Platon:</strong>
+                        <span>{{$properties->platon}}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Lantai:</strong>
+                        <span>{{$properties->lantai}}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Kusen:</strong>
+                        <span>{{$properties->kusen}}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Pintu:</strong>
+                        <span>{{$properties->pintu}}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Sanitasi:</strong>
+                        <span>{{$properties->sanitasi}}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Air:</strong>
+                        <span>{{$properties->air}}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Listrik:</strong>
+                        <span>{{$properties->listrik}}</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
