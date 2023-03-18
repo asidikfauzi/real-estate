@@ -24,6 +24,17 @@ class CreatePerumahansTable extends Migration
             $table->longText('alamat');
             $table->string('kode_pos');
             $table->string('harga');
+            $table->string('pondasi');
+            $table->string('struktur');
+            $table->string('atap');
+            $table->string('dinding');
+            $table->string('platon');
+            $table->string('lantai');
+            $table->string('kusen');
+            $table->string('pintu');
+            $table->string('sanitasi');
+            $table->string('air');
+            $table->string('listrik');
             $table->longText('keterangan');
             $table->boolean('status');
             $table->boolean('deleted');
