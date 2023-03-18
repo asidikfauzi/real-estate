@@ -31,6 +31,7 @@ class PerumahanController extends Controller
     public function propertySingle($id)
     {
         $properties = Perumahan::where('id', $id)->first();
+
         return view('layouts.property-single', compact('properties'));
     }
 
