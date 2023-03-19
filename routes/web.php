@@ -19,10 +19,6 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('layouts.index');
-// });
-
 // Auth::routes();
 Route::get('/login', [LoginController::class, 'indexHalaman'])->name('authLogin');
 Route::post('/login', [LoginController::class, 'login'])->name('authLogin');
@@ -65,9 +61,9 @@ Route::group(['prefix'=>'admin', 'middleware'=>['Admin','auth']], function(){
 
 Route::group(['prefix'=>'user', 'middleware'=>['User','auth']], function(){
     Route::get('/home', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
-
     Route::post('/pesan', [App\Http\Controllers\UserController::class, 'sendPesan'])->name('user.sendPesan');
 
+    Route::post('/order-confirmation/{id}', [App\Http\Controllers\UserController::class, 'orderConfirmation'])->name('user.orderConfirmation');
 });
 
 

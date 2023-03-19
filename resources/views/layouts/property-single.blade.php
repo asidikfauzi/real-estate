@@ -185,35 +185,36 @@
             <div class="row">
               <div class="col-md-12 col-lg-12">
                 <div class="property-contact">
-                  <form class="form-a">
+                  <form class="form-a" method="POST" action="{{route('user.orderConfirmation', $properties->id)}}" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-md-12 mb-1">
                             <div class="form-group">
-                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-1" autocomplete="off">
+                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-1" autocomplete="off" value="12/{{$tunai}}">
                                 <label class="btn btn-outline-success" for="success-outlined-1" style="width: 100%;">Tunai : Rp. {{number_format($tunai)}}</label>
                             </div>
                         </div>
                         <div class="col-md-12 mb-1">
                             <div class="form-group">
-                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-1" autocomplete="off">
+                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-1" autocomplete="off" value="60/{{$limaTahun}}">
                                 <label class="btn btn-outline-success" for="success-outlined-1" style="width: 100%;">5 Tahun : Rp. {{number_format($limaTahun)}} <br> Total: Rp. {{number_format($totalLimaTahun)}}</label>
                             </div>
                         </div>
                         <div class="col-md-12 mb-1">
                             <div class="form-group">
-                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-2" autocomplete="off">
+                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-2" autocomplete="off" value="120/{{$sepuluhTahun}}">
                                 <label class="btn btn-outline-success" for="success-outlined-2" style="width: 100%;">10 Tahun : Rp. {{number_format($sepuluhTahun)}}<br> Total: Rp. {{number_format($totalSepuluhTahun)}}</label>
                             </div>
                         </div>
                         <div class="col-md-12 mb-1">
                             <div class="form-group">
-                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-3" autocomplete="off">
+                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-3" autocomplete="off" value="180/{{$limabelasTahun}}">
                                 <label class="btn btn-outline-success" for="success-outlined-3" style="width: 100%;">15 Tahun : Rp. {{number_format($limabelasTahun)}} <br> Total: Rp. {{number_format($totalLimabelasTahun)}}</label>
                             </div>
                         </div>
                         <div class="col-md-12 mb-1">
                             <div class="form-group">
-                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-4" autocomplete="off">
+                                <input type="radio" class="btn-check" name="cicilan" id="success-outlined-4" autocomplete="off" value="240/{{$duapuluhTahun}}">
                                 <label class="btn btn-outline-success" for="success-outlined-4" style="width: 100%;">20 Tahun : Rp. {{number_format($duapuluhTahun)}} <br> Total: Rp. {{number_format($totalDuapuluhTahun)}}</label>
                             </div>
                         </div>
@@ -225,7 +226,7 @@
                             <input type="text" name="name" class="form-control form-control-lg form-control-a" id="inputName" placeholder="Name *" required>
                             </div>
                         </div>
-                        @error('cicilan')
+                        @error('name')
                             <div style="font-size: 12px; color: red">{{ $message }}</div>
                         @enderror
                         <div class="col-md-12 mb-1">
@@ -246,7 +247,7 @@
                         @enderror
                         <div class="col-md-12 mb-1">
                             <div class="form-group">
-                            <input type="file" name="image" class="form-control form-control-lg form-control-a" id="inputImage" placeholder="Upload Image *" required>
+                            <input type="file" name="image" class="form-control form-control-lg form-control-a" required>
                             </div>
                         </div>
                         @error('image')
@@ -263,14 +264,6 @@
                             </div>
                         </div>
                         @error('agent')
-                            <div style="font-size: 12px; color: red">{{ $message }}</div>
-                        @enderror
-                        <div class="col-md-12 mb-1">
-                            <div class="form-group">
-                            <textarea id="textMessage" class="form-control" placeholder="Keterangan *" name="keterangan" cols="45" rows="8" required></textarea>
-                            </div>
-                        </div>
-                        @error('keterangan')
                             <div style="font-size: 12px; color: red">{{ $message }}</div>
                         @enderror
                         @if(Auth::user())
