@@ -17,6 +17,10 @@ class CreateBookingsTable extends Migration
             $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignUuid('perumahan_id')->references('id')->on('perumahans')->onDelete('cascade');
             $table->foreignUuid('agent_id')->references('id')->on('agents')->onDelete('cascade');
+            $table->string('name');
+            $table->string('email');
+            $table->string('no_telp');
+            $table->string('tempo');
             $table->string('cicilan');
             $table->string('total_harga');
             $table->string('image');
