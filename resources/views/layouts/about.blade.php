@@ -38,7 +38,7 @@
               <img src="assets/img/slide-about-1.jpg" alt="" class="img-fluid">
             </div>
             <div class="sinse-box">
-              <h3 class="sinse-title">EstateAgency
+              <h3 class="sinse-title">VillaBotosari
                 <span></span>
                 <br> Sinse 2017
               </h3>
@@ -52,7 +52,7 @@
               </div>
               <div class="col-lg-2  d-none d-lg-block position-relative">
                 <div class="title-vertical d-flex justify-content-start">
-                  <span>EstateAgency Exclusive Property</span>
+                  <span>VillaBotosari Exclusive Property</span>
                 </div>
               </div>
               <div class="col-md-6 col-lg-5 section-md-t3">
