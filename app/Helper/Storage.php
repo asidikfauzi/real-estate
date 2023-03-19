@@ -32,4 +32,13 @@ class Storage
 
       return $name;
     }
+
+    public static function uploadImageBooking($fileImage)
+    {
+      $ext = $fileImage->getClientOriginalExtension();
+      $name = UUid::createNameForImage($ext);
+      $fileImage->move(base_path("public/assets/img/booking"), $name);
+
+      return $name;
+    }
 }
