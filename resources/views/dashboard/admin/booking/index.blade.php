@@ -138,7 +138,17 @@ console.log('masok')
                             render: $.fn.dataTable.render.number( ',', '.', 3, 'Rp.' )
                         },
                         {data: 'keterangan', name: 'keterangan'},
-                        {data: 'status', name:'status'},
+                        {data: 'status',
+                            render: function(data) {
+                                if(data == 'terjual') {
+                                    return '<font color="green">Terjual</font>'
+                                } else if(data == 'ditolak'){
+                                    return '<font color="orange">Ditolak</font>'
+                                } else {
+                                    return '<font color="red">Pending</font>'
+                                }
+                            }
+                        },
                         {data:'pembeli', name:'pembeli'},
                         {data:'agent', name:'agent'},
                         {data: 'check', name: 'check'},
