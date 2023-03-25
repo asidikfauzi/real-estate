@@ -45,6 +45,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>['Admin','auth']], function(){
     Route::get('/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('admin.edit');
     Route::post('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('admin.update');
     Route::get('/terjual/{id}', [App\Http\Controllers\HomeController::class, 'propertyTerjual'])->name('admin.property.terjual');
+    Route::get('/tertolak/{id}', [App\Http\Controllers\HomeController::class, 'propertyDitolak'])->name('admin.property.ditolak');
 
     Route::get('/agent', [App\Http\Controllers\AgentController::class, 'index'])->name('admin.agent.index');
     Route::get('/agent/create', [App\Http\Controllers\AgentController::class, 'create'])->name('admin.agent.create');
@@ -56,6 +57,9 @@ Route::group(['prefix'=>'admin', 'middleware'=>['Admin','auth']], function(){
     Route::get('/pesan', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.pesan.index');
     Route::get('/pesan/{id}', [App\Http\Controllers\AdminController::class, 'show'])->name('admin.pesan.show');
     Route::post('/pesan', [App\Http\Controllers\AdminController::class, 'sendPesan'])->name('admin.sendPesan');
+
+    Route::get('/booking', [App\Http\Controllers\AdminController::class, 'booking'])->name('admin.booking.index');
+    Route::get('/get-data-booking', [App\Http\Controllers\AdminController::class, 'getDataBooking'])->name('admin.getdata.booking');
 
 });
 
