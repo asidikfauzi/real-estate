@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Helper\Storage;
 use App\Models\Pesan;
 use App\Models\User;
+use App\Models\Perumahan;
+use DataTables;
 use Auth;
 use Alert;
 
@@ -31,33 +33,6 @@ class AdminController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
@@ -77,35 +52,7 @@ class AdminController extends Controller
         return json_decode($data);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
@@ -137,5 +84,47 @@ class AdminController extends Controller
 
         Alert::success('Success', 'Pesan Berhasil Dikirim!');
         return back();
+    }
+
+    public function booking()
+    {
+        return view('dashboard.admin.booking.index');
+    }
+
+    public function getDataBooking()
+    {
+        $data = Perumahan::select('perumahans.id',
+                'perumahans.image',
+                'perumahans.alamat',
+                'perumahans.harga',
+                'perumahans.keterangan',
+                'bookings.status',
+                'users.email as pembeli',
+                'agents.name as agent',
+            )
+            ->join('bookings', 'perumahans.id', 'bookings.perumahan_id')
+            ->join('agents', 'bookings.agent_id', 'agents.id')
+            ->join('users', 'users.id', 'bookings.user_id')
+            ->orderBy('bookings.created_at', 'DESC')
+            ->get();
+
+        return DataTables::of($data)->addIndexColumn()
+            ->addColumn('check', function($row){
+                if($row->status != 'terjual')
+                {
+                    return '<a href="'.route('admin.property.terjual', $row->id).'">
+                        <i class="bi bi-check-circle" style="color:green; padding: 30%"></i></a>';
+                }
+
+            })
+            ->addColumn('delete', function($row){
+                if($row->status != 'terjual')
+                {
+                    return '<a href="'.route('admin.property.ditolak', $row->id).'">
+                        <i class="bi bi-x-lg" style="color:red; padding: 30%;"></i></a>';
+                }
+            })
+            ->rawColumns(['edit','check','delete'])
+            ->make(true);
     }
 }
