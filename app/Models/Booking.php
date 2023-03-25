@@ -11,8 +11,9 @@ class Booking extends Model
 
     protected $table = "bookings";
     protected $guarded = [];
-    protected $primaryKey = "id";
-    protected $keyType = "string";
+    public $incrementing = false;
+    protected $primaryKey = 'perumahan_id';
+    protected $keyType = 'string';
 
     public function users()
     {
