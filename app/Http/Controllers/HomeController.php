@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Perumahan;
+use App\Models\Booking;
+use App\Models\Pesan;
 use App\Helper\Storage;
 use App\Helper\Uuid;
 use Alert;
 use DataTables;
+use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -42,14 +46,6 @@ class HomeController extends Controller
                     return '<a href="'.route('admin.edit',$row->id).'">
                         <i class="bi bi-pencil-square" style="color:green; padding: 30%"></i></a>';
                 }
-            })
-            ->addColumn('check', function($row){
-                if($row->status != false)
-                {
-                    return '<a href="'.route('admin.property.terjual', $row->id).'">
-                        <i class="bi bi-check-circle" style="color:green; padding: 30%"></i></a>';
-                }
-
             })
             ->addColumn('delete', function($row){
                 if($row->status != false)
@@ -151,18 +147,67 @@ class HomeController extends Controller
     public function propertyTerjual($id)
     {
         $data = Perumahan::where('id', $id)->first();
+        $booking = Booking::where('perumahan_id', $id)->first();
 
-        if(!$data)
+        if(!$data || !$booking)
         {
             Alert::info('Not Found', 'Perumahan Tidak Ditemukan!');
             return back();
         }
 
+
+        DB::beginTransaction();
+
         $data->update([
             'status' => false,
         ]);
 
+        $booking->update([
+            'status' => 'terjual',
+        ]);
+
+        $keterangan = "Pesan ini adalah pesan otomatis
+            <br><b>Persetujuan pembelian rumah berhasil di setujui.</b>";
+
+        $pesan = Pesan::create([
+            'user_from' => Auth::user()->id,
+            'user_to' => $booking->user_id,
+            'keterangan' => $keterangan,
+        ]);
+
+        DB::commit();
+
         Alert::success('Success', 'Properties Berhasil Terjual!');
+        return back();
+    }
+
+    public function propertyDitolak($id)
+    {
+        $booking = Booking::where('perumahan_id', $id)->first();
+
+        if(!$booking)
+        {
+            Alert::info('Not Found', 'Perumahan Tidak Ditemukan!');
+            return back();
+        }
+
+        DB::beginTransaction();
+
+        $booking->status = 'ditolak';
+        $booking->save();
+
+        $keterangan = "Pesan ini adalah pesan otomatis
+            <br><b>Persetujuan pembelian rumah anda di tolak.</b>";
+
+        $pesan = Pesan::create([
+            'user_from' => Auth::user()->id,
+            'user_to' => $booking->user_id,
+            'keterangan' => $keterangan,
+        ]);
+
+        DB::commit();
+
+        Alert::success('Ditolak', 'Properties Berhasil Ditolak!');
         return back();
     }
 }
