@@ -31,6 +31,7 @@
 
                   <div class="col-md-12">
                     <a class="btn btn-a" href="{{route('admin.agent.index')}}">Agent</a>
+                    <a class="btn btn-a" href="{{route('admin.booking.index')}}">Daftar Booking</a>
                     <form method="POST" action="{{route('admin.store')}}" enctype="multipart/form-data">
                       @csrf
                       <div class="row">
@@ -45,7 +46,6 @@
                                       <th>Harga</th>
                                       <th>Keterangan</th>
                                       <th>Status</th>
-                                      <th></th>
                                       <th></th>
                                       <th></th>
                                   </tr>
@@ -153,7 +153,6 @@ console.log('masok')
                             }
                         },
                         {data: 'edit', name: 'edit'},
-                        {data: 'check', name: 'check'},
                         {data: 'delete', name: 'delete'},
                 ]
             });
