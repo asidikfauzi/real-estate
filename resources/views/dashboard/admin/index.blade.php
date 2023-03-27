@@ -46,8 +46,7 @@
                                       <th>Harga</th>
                                       <th>Keterangan</th>
                                       <th>Status</th>
-                                      <th></th>
-                                      <th></th>
+                                      <th>Edit</th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -153,7 +152,6 @@ console.log('masok')
                             }
                         },
                         {data: 'edit', name: 'edit'},
-                        {data: 'delete', name: 'delete'},
                 ]
             });
         }
