@@ -47,13 +47,13 @@ class HomeController extends Controller
                         <i class="bi bi-pencil-square" style="color:green; padding: 30%"></i></a>';
                 }
             })
-            ->addColumn('delete', function($row){
-                if($row->status != false)
-                {
-                    return '<a href="#">
-                        <i class="bi bi-trash3" style="color:red; padding: 30%;"></i></a>';
-                }
-            })
+            // ->addColumn('delete', function($row){
+            //     if($row->status != false)
+            //     {
+            //         return '<a href="#">
+            //             <i class="bi bi-trash3" style="color:red; padding: 30%;"></i></a>';
+            //     }
+            // })
             ->rawColumns(['edit','check','delete'])
             ->make(true);
     }
