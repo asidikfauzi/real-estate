@@ -61,16 +61,16 @@
             <a class="nav-link" href="{{route('index')}}">Home</a>
           </li>
 
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link " href="{{route('about')}}">About</a>
-          </li>
+          </li> --}}
 
           <li class="nav-item">
             <a class="nav-link " href="{{route('property_grid')}}">Property</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="{{route('contact')}}">Contact</a>
+            <a class="nav-link " href="{{route('contact')}}">About Us</a>
           </li>
           <li class="nav-item dropdown">
             @guest
@@ -117,22 +117,29 @@
         <div class="col-sm-12 col-md-4">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand">EstateAgency</h3>
+              <h3 class="w-title-a text-brand">VillaBotosari</h3>
             </div>
             <div class="w-body-a">
               <p class="w-text-a color-text-a">
-                Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
-                sed aute irure.
+                Untuk info harga, temukan di aplikasi SEPAKAT.
               </p>
             </div>
             <div class="w-footer-a">
               <ul class="list-unstyled">
                 <li class="color-a">
-                  <span class="color-text-a">Phone .</span> contact@example.com
+                  <span class="color-text-a">Layanan WA (Senin-Jumat, 08.00-17.00)</span><br>
+                  08133-5258-080
                 </li>
                 <li class="color-a">
-                  <span class="color-text-a">Email .</span> +54 356 945234
+                  <span class="color-text-a">Layanan Telepon (Senin-Jumat, 08.00-17.00)</span><br>
+                  Telkomsel: 08133-5258-181 <br>
+                  XL: 0819-9038-2009 <br>
+                  Three: 0897-2570-801 <br>
                 </li>
+                <li class="color-a">
+                    <span class="color-text-a">Layanan Telepon/WA (di luar jam oprasional)</span><br>
+                    0813-4226-2620
+                  </li>
               </ul>
             </div>
           </div>
