@@ -52,7 +52,7 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.html">Villa<span class="color-b">Botosari</span></a>
+      <a class="navbar-brand text-brand" href="{{route('index')}}">Villa<span class="color-b">Botosari</span></a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
@@ -60,10 +60,6 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('index')}}">Home</a>
           </li>
-
-          {{-- <li class="nav-item">
-            <a class="nav-link " href="{{route('about')}}">About</a>
-          </li> --}}
 
           <li class="nav-item">
             <a class="nav-link " href="{{route('property_grid')}}">Property</a>
