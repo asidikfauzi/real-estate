@@ -127,14 +127,14 @@
                     <div class="card-overlay-a-content">
                       <div class="card-header-a">
                         <h2 class="card-title-a">
-                          <a href="property-single.html">{{$item->alamat}}</a>
+                          <a href="{{route('property_single', $item->id)}}">{{$item->alamat}}</a>
                         </h2>
                       </div>
                       <div class="card-body-a">
                         <div class="price-box d-flex">
                           <span class="price-a">rent | Rp {{number_format($item->harga)}}</span>
                         </div>
-                        <a href="#" class="link-a">Click here to view
+                        <a href="{{route('property_single', $item->id)}}" class="link-a">Click here to view
                           <span class="bi bi-chevron-right"></span>
                         </a>
                       </div>
