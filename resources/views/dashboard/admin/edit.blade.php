@@ -88,6 +88,101 @@
                                 <div style="font-size: 12px; color: red">{{ $message }}</div>
                             @enderror
                         </div>
+
+
+                        <div class="col-md-4 mb-3">
+                            <div class="form-group">
+                                <input type="text" name="pondasi" class="form-control form-control-lg form-control-a" placeholder="Pondasi" value="{{$data->pondasi}}" required>
+                            </div>
+                            @error('pondasi')
+                                <div style="font-size: 12px; color: red">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="form-group">
+                                <input type="text" name="struktur" class="form-control form-control-lg form-control-a" value="{{$data->struktur}}" placeholder="Struktur" required>
+                            </div>
+                            @error('struktur')
+                                <div style="font-size: 12px; color: red">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="form-group">
+                                <input type="text" name="atap" class="form-control form-control-lg form-control-a" value="{{$data->atap}}" placeholder="Atap" required>
+                            </div>
+                            @error('atap')
+                                <div style="font-size: 12px; color: red">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="form-group">
+                                <input type="text" name="dinding" class="form-control form-control-lg form-control-a" value="{{$data->dinding}}" placeholder="Dinding" required>
+                            </div>
+                            @error('dinding')
+                                <div style="font-size: 12px; color: red">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="form-group">
+                                <input type="text" name="platon" class="form-control form-control-lg form-control-a" placeholder="Platon" value="{{$data->platon}}" required>
+                            </div>
+                            @error('platon')
+                                <div style="font-size: 12px; color: red">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="form-group">
+                                <input type="text" name="lantai" class="form-control form-control-lg form-control-a" placeholder="Lantai" value="{{$data->lantai}}" required>
+                            </div>
+                            @error('lantai')
+                                <div style="font-size: 12px; color: red">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="form-group">
+                                <input type="text" name="kusen" class="form-control form-control-lg form-control-a" placeholder="Kusen" value="{{$data->kusen}}" required>
+                            </div>
+                            @error('kusen')
+                                <div style="font-size: 12px; color: red">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="form-group">
+                                <input type="text" name="pintu" class="form-control form-control-lg form-control-a" placeholder="Pintu" value="{{$data->pintu}}" required>
+                            </div>
+                            @error('pintu')
+                                <div style="font-size: 12px; color: red">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="form-group">
+                                <input type="text" name="sanitasi" class="form-control form-control-lg form-control-a" placeholder="Sanitasi" value="{{$data->sanitasi}}" required>
+                            </div>
+                            @error('sanitasi')
+                                <div style="font-size: 12px; color: red">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="form-group">
+                                <input type="text" name="air" class="form-control form-control-lg form-control-a" placeholder="Air" value="{{$data->air}}" required>
+                            </div>
+                            @error('air')
+                                <div style="font-size: 12px; color: red">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="form-group">
+                                <input type="text" name="listrik" class="form-control form-control-lg form-control-a" placeholder="Listrik" value="{{$data->listrik}}" required>
+                            </div>
+                            @error('listrik')
+                                <div style="font-size: 12px; color: red">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <input type="number" name="harga" class="form-control form-control-lg form-control-a" placeholder="Rp. 10.000" value="{{$data->harga}}" required>
