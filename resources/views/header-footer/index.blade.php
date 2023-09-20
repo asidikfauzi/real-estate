@@ -153,3 +153,11 @@
   <script src="{{asset('assets/js/main.js')}}"></script>
 </body>
 </html>
+
+
+<td>
+    <a href="" class="btn btn-info btn-block">
+        <i class="bi bi-view-list"></i>
+        View
+    </a>
+</td>
