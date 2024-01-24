@@ -16,7 +16,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="#">Home</a>
+                  <a href="{{route('index')}}">Home</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                   Properties Grid
@@ -31,18 +31,6 @@
     <section class="property-grid grid">
       <div class="container">
         <div class="row">
-          <div class="col-sm-12">
-            <div class="grid-option">
-              <form>
-                <select class="custom-select">
-                  <option selected>All</option>
-                  <option value="1">New to Old</option>
-                  <option value="2">For Rent</option>
-                  <option value="3">For Sale</option>
-                </select>
-              </form>
-            </div>
-          </div>
           @foreach ($properties as $item)
           <div class="col-md-4">
             <div class="card-box-a card-shadow">

@@ -115,11 +115,6 @@
             <div class="w-header-a">
               <h3 class="w-title-a text-brand">VillaBotosari</h3>
             </div>
-            <div class="w-body-a">
-              <p class="w-text-a color-text-a">
-                Untuk info harga, temukan di aplikasi SEPAKAT.
-              </p>
-            </div>
             <div class="w-footer-a">
               <ul class="list-unstyled">
                 <li class="color-a">
@@ -130,7 +125,7 @@
                   <span class="color-text-a">Layanan Telepon (Senin-Jumat, 08.00-17.00)</span><br>
                   Telkomsel: 08133-5258-181 <br>
                   XL: 0819-9038-2009 <br>
-                  Three: 0897-2570-801 <br>
+                  3: 0897-2570-801 <br>
                 </li>
                 <li class="color-a">
                     <span class="color-text-a">Layanan Telepon/WA (di luar jam oprasional)</span><br>
